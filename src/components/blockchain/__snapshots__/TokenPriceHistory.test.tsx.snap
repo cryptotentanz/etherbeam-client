@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TokenPriceHistory /> Default should match snapshot 1`] = `
+<ul
+  class="my-list-h  "
+>
+  <li
+    class="my-listitem "
+  >
+    <span
+      class="my-badge my-light-bg  "
+    >
+      <span
+        class="my-difference-prefix"
+      >
+        H
+      </span>
+      <span
+        class="my-difference-amount"
+      >
+        +0%
+      </span>
+    </span>
+  </li>
+  <li
+    class="my-listitem "
+  >
+    <span
+      class="my-badge my-positive-bg  "
+    >
+      <span
+        class="my-difference-prefix"
+      >
+        D
+      </span>
+      <span
+        class="my-difference-amount"
+      >
+        +50%
+      </span>
+    </span>
+  </li>
+  <li
+    class="my-listitem "
+  >
+    <span
+      class="my-badge my-negative-bg  "
+    >
+      <span
+        class="my-difference-prefix"
+      >
+        W
+      </span>
+      <span
+        class="my-difference-amount"
+      >
+        -50%
+      </span>
+    </span>
+  </li>
+</ul>
+`;

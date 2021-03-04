@@ -1,0 +1,31 @@
+name: Deploy app
+env:
+  APP_PATH: /var/app/etherbeam/client
+  WWW_USER: www-data
+  WWW_PATH: /var/www/${{ secrets.NGINX_NAME }}
+
+on:
+  - workflow_dispatch
+
+jobs:
+  deploy-app:
+    name: Deploy Client
+    runs-on: ubuntu-latest
+    environment: development
+
+    steps:
+      - name: Deploy client
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script_stop: true
+          script: |
+            sudo rm -rf ${{ env.WWW_PATH }}/*
+            mkdir -p -m 770 ${{ env.WWW_PATH }}
+            cp -r ${{ env.APP_PATH }}/dist/* ${{ env.WWW_PATH }}
+            sudo chown -R ${{ env.WWW_USER }}:${{ env.WWW_USER }} ${{ env.WWW_PATH }}
+            sudo chmod -R 770 ${{ env.WWW_PATH }}
+            ls -halrt ${{ env.WWW_PATH }}

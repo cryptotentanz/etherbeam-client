@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/create-react-app/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./src/",
+    "outDir": "dist",
+    "removeComments": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*"]
+}

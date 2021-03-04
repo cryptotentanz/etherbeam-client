@@ -1,0 +1,33 @@
+@use '../../styles/resources/sizes';
+
+.my-tokenpage {
+  &-main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-details {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &-link {
+    margin: 0px !important;
+  }
+
+  &-chart {
+    flex-basis: 100%;
+  }
+
+  @media screen and (min-width: sizes.$breakpoint-w-s) {
+    &-details {
+      flex-basis: 50%;
+    }
+
+    &-chart {
+      flex-basis: 50%;
+    }
+  }
+}

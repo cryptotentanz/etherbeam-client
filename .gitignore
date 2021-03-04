@@ -1,0 +1,28 @@
+# Dependencies
+
+/node_modules
+
+# Logs
+
+*.log
+
+# Environment
+
+.env
+/geth
+
+# Deployment
+
+/dist
+
+# Tests
+
+/coverage
+
+# Temporary files
+
+/tmp
+
+# Miscellaneous
+
+.DS_Store

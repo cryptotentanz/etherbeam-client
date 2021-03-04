@@ -1,0 +1,11 @@
+@use '../styles/resources/sizes';
+@use '../styles/resources/colors';
+
+.my-icon {
+  display: inline-flex;
+  align-items: center;
+
+  &-label {
+    padding-left: sizes.$spacer-s;
+  }
+}

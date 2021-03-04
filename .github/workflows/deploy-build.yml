@@ -1,0 +1,40 @@
+name: Deploy build
+env:
+  APP_PATH: /var/app/etherbeam/client
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy build
+    runs-on: ubuntu-latest
+    environment: development
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Create Client .env file
+        run: |
+          touch .env
+          echo SERVER_API_HOST='${{ secrets.SERVER_API_HOST }}' >> .env
+
+      - name: Build distribution
+        run: |
+          yarn build
+          ls -halrt dist
+
+      - name: Copy repository to the VPS
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: '*'
+          target: '${{ env.APP_PATH }}'
+          rm: true

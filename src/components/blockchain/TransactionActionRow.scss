@@ -1,0 +1,17 @@
+@use '../../styles/resources/colors';
+@use '../../styles/resources/sizes';
+
+.my-transactionactionrow {
+  td {
+    padding: sizes.$spacer-xs sizes.$spacer-s !important;
+  }
+
+  &-action {
+    display: flex;
+    align-items: center;
+  }
+
+  &-icon {
+    margin-right: sizes.$spacer-s;
+  }
+}

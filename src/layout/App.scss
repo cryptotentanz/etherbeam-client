@@ -1,0 +1,15 @@
+@use '../styles/resources/sizes';
+
+.my-app {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+
+  &-main {
+    margin: sizes.$spacer sizes.$spacer-l;
+    position: relative;
+  }
+}

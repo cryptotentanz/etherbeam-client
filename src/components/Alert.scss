@@ -1,0 +1,8 @@
+@use '../styles/resources/sizes';
+
+.my-alert {
+  border-width: sizes.$border;
+  border-style: solid;
+  border-radius: sizes.$border-radius;
+  padding: sizes.$spacer-s;
+}
