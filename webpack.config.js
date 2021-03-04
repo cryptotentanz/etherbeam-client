@@ -2,7 +2,6 @@
 
 const path = require('path')
 const webpack = require('webpack')
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const dotenv = require('dotenv')
 
@@ -75,12 +74,8 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.ts', '.tsx'],
-    plugins: [
-      new TsconfigPathsPlugin({
-        configFile: './tsconfig.build.json',
-      }),
-    ],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    modules: ['node_modules', path.resolve(__dirname, 'src')],
   },
 
   devServer: {
@@ -89,7 +84,5 @@ module.exports = {
     publicPath: 'http://localhost:3000/',
     hotOnly: true,
     historyApiFallback: true,
-    open: true,
-    host: 'localhost',
   },
 }
